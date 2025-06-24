@@ -24,6 +24,8 @@
     -   **임시 불용어**: 시각화 시 일회성으로 사용할 불용어를 직접 입력.
 
 ## 📁 프로젝트 구조
+
+```text
 .
 ├── app.py                   # 메인 Streamlit 애플리케이션
 ├── myLangchainService.py    # LLM 연동 서비스
