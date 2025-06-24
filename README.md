@@ -24,26 +24,27 @@
     -   **임시 불용어**: 시각화 시 일회성으로 사용할 불용어를 직접 입력.
 
 ## 📁 프로젝트 구조
-- **app.py**: 메인 Streamlit 애플리케이션  
-- **myLangchainService.py**: LLM 연동 서비스  
-- **requirements.txt**: 프로젝트 의존성 라이브러리  
-- **default_stop_words.json**: 기본 불용어 목록  
-- **data/**: 데이터 저장 폴더 (CSV)  
-- **models/**: 학습된 모델 저장 폴더  
-- **stopwords/**: 게임별 불용어 저장 폴더  
-- **result/**: 테스트 결과 저장 폴더  
-- **lib/**: 핵심 로직 모듈 폴더  
-  - `steam_api.py`  
-  - `data_preprocessor.py`  
-  - `model_trainer.py`  
-  - `keras_model_manager.py`  
-  - `model_tester.py`  
-- **pages/**: 기능별 페이지 폴더  
-  - `1_데이터 수집.py`  
-  - `2_LLM 라벨링.py`  
-  - `3_모델 학습 및 테스트.py`  
-  - `4_시각화.py`  
-  - `5_불용어 관리.py`
+.
+├── app.py                   # 메인 Streamlit 애플리케이션
+├── myLangchainService.py    # LLM 연동 서비스
+├── requirements.txt         # 프로젝트 의존성 라이브러리
+├── default_stop_words.json  # 기본 불용어 목록
+├── data/                    # 데이터 저장 폴더 (CSV)
+├── models/                  # 학습된 모델 저장 폴더
+├── stopwords/               # 게임별 불용어 저장 폴더
+├── result/                  # 테스트 결과 저장 폴더
+├── lib/                     # 핵심 로직 모듈 폴더
+│   ├── steam_api.py
+│   ├── data_preprocessor.py
+│   ├── model_trainer.py
+│   ├── keras_model_manager.py
+│   └── model_tester.py
+└── pages/                   # 기능별 페이지 폴더
+    ├── 1_데이터 수집.py
+    ├── 2_LLM 라벨링.py
+    ├── 3_모델 학습 및 테스트.py
+    ├── 4_시각화.py
+    └── 5_불용어 관리.py
 
 ## 📖 사용 방법 (추천 워크플로우)
 
