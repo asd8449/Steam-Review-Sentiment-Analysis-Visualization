@@ -1,0 +1,12 @@
+pandas
+requests
+streamlit
+langchain
+langchain-openai
+scikit-learn
+matplotlib
+wordcloud
+joblib
+tensorflow
+konlpy
+seaborn
