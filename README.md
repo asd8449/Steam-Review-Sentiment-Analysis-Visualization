@@ -10,18 +10,20 @@
 ![image](https://github.com/user-attachments/assets/0a940577-26dc-460a-b2e2-4b5c8f0678d0)<br>
 :point_up:기존에 수집한 데이터 확인 가능<br>
 <hr>
+
 -   **🤖 LLM 기반 레이블링**: 로컬 LLM(LM Studio 등)을 활용하여 수집된 리뷰에 '긍정', '부정', '중립' 감성 레이블을 자동으로 부여합니다.
-![458869779-906ae66e-6049-42d3-a0fa-1749cc1380c1](https://github.com/user-attachments/assets/46703d7e-6915-4939-8005-5ca1d133a08b)
-<br>
+![image](https://github.com/user-attachments/assets/906ae66e-6049-42d3-a0fa-1749cc1380c1)<br>
 :point_up:레이블링 전 데이터 개수, 미리보기, 컬럼 값 확인 가능<br>
 ![image](https://github.com/user-attachments/assets/191cb84d-2b6b-41e3-85a1-8ca30638f222)<br>
 :point_up:레이블링 설정 후 실행<br>
 <hr>
+
 -   **🏋️ 듀얼 모델 학습**: 두 가지 종류의 모델을 학습시킬 수 있습니다.
     -   **Scikit-learn (로지스틱 회귀)**: 빠르고 안정적인 전통적 머신러닝 모델.
     -   **Deep Learning (LSTM)**: 더 높은 성능을 기대할 수 있는 딥러닝 모델.
 ![image](https://github.com/user-attachments/assets/4bb57d58-99d4-4cb8-9353-08415cdb3259)<br>
 <hr>
+
 -   **🧪 상세 모델 테스트**: 학습된 모델의 성능을 두 가지 방식으로 검증합니다.
     -   **파일 전체 테스트**: 테스트용 CSV 파일 전체에 대한 성능을 `Classification Report`와 `Confusion Matrix`로 상세히 분석합니다.
     -   **실시간 텍스트 판별**: 텍스트를 직접 입력하여 모델의 판별 결과를 즉시 확인하고, LLM의 결과와 나란히 비교할 수 있습니다.
@@ -29,12 +31,14 @@
 ![image](https://github.com/user-attachments/assets/3ca716fe-1463-44d3-92a3-3bb985ac0d93)
 :point_up:새로운 모델 생성 및 적은 데이터로 학습 시 낮은 정확도가 나올 수 있다.
 <hr>
+
 -   **🔄 피드백 루프 및 즉시 재학습**:
     -   실시간 판별 결과를 사용자가 직접 수정하여 피드백 데이터(`feedback_labeled_data.csv`)로 저장할 수 있습니다.
     -   Scikit-learn 모델의 경우, 피드백을 반영하여 **선택된 모델을 즉시 재학습**하고 덮어쓸 수 있습니다.
 ![image](https://github.com/user-attachments/assets/515b919e-2ad1-4f99-b7eb-acfd97f68843)<br>
 :point_up:Scikit-learn은 즉시 피드백 추가<br>
 <hr>
+
 -   **📊 시각화**:
     -   분석 결과의 감성 분포를 파이 차트로 시각화합니다.
     -   '긍정', '부정', '중립' 각 레이블에 대한 워드 클라우드를 생성하여 핵심 키워드를 파악합니다.
@@ -43,6 +47,7 @@
 :point_up:기본 불용어 확인과 게임별, 임시 불용어 등록 가능<br>
 ![image](https://github.com/user-attachments/assets/e128024e-7dec-4b1f-9b4d-79323b88f4d0)<br>
 <hr>
+
 -   **⚙️ 3단계 불용어 관리**:
     -   **기본 불용어**: 모든 분석에 공통으로 적용되는 불용어를 UI에서 직접 관리 (`default_stop_words.json`).
     -   **게임별 불용어**: 특정 게임에만 적용되는 불용어를 별도로 관리 (`stopwords/[AppID].json`).
