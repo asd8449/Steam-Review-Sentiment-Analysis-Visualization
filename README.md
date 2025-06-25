@@ -5,23 +5,48 @@
 ## ✨ 주요 기능
 
 -   **📥 데이터 수집**: App ID를 기반으로 특정 스팀 게임의 리뷰를 실시간으로 수집하고 CSV로 저장합니다.
+![image](https://github.com/user-attachments/assets/3430a992-d27a-45a0-95bc-234415301329)<br>
+:point_up:데이터 수집 과정<br>
+![image](https://github.com/user-attachments/assets/0a940577-26dc-460a-b2e2-4b5c8f0678d0)<br>
+:point_up:기존에 수집한 데이터 확인 가능<br>
+
 -   **🤖 LLM 기반 레이블링**: 로컬 LLM(LM Studio 등)을 활용하여 수집된 리뷰에 '긍정', '부정', '중립' 감성 레이블을 자동으로 부여합니다.
+![image](https://github.com/user-attachments/assets/906ae66e-6049-42d3-a0fa-1749cc1380c1)<br>
+:point_up:레이블링 전 데이터 개수, 미리보기, 컬럼 값 확인 가능<br>
+![image](https://github.com/user-attachments/assets/191cb84d-2b6b-41e3-85a1-8ca30638f222)<br>
+:point_up:레이블링 설정 후 실행<br>
+
 -   **🏋️ 듀얼 모델 학습**: 두 가지 종류의 모델을 학습시킬 수 있습니다.
     -   **Scikit-learn (로지스틱 회귀)**: 빠르고 안정적인 전통적 머신러닝 모델.
     -   **Deep Learning (LSTM)**: 더 높은 성능을 기대할 수 있는 딥러닝 모델.
+![image](https://github.com/user-attachments/assets/4bb57d58-99d4-4cb8-9353-08415cdb3259)<br>
 -   **🧪 상세 모델 테스트**: 학습된 모델의 성능을 두 가지 방식으로 검증합니다.
     -   **파일 전체 테스트**: 테스트용 CSV 파일 전체에 대한 성능을 `Classification Report`와 `Confusion Matrix`로 상세히 분석합니다.
     -   **실시간 텍스트 판별**: 텍스트를 직접 입력하여 모델의 판별 결과를 즉시 확인하고, LLM의 결과와 나란히 비교할 수 있습니다.
+![image](https://github.com/user-attachments/assets/b9cb16fb-6cb3-435d-932c-64e2a3bce26c)<br>
+![image](https://github.com/user-attachments/assets/3ca716fe-1463-44d3-92a3-3bb985ac0d93)
+:point_up:새로운 모델 생성 및 적은 데이터로 학습 시 낮은 정확도가 나올 수 있다.
 -   **🔄 피드백 루프 및 즉시 재학습**:
     -   실시간 판별 결과를 사용자가 직접 수정하여 피드백 데이터(`feedback_labeled_data.csv`)로 저장할 수 있습니다.
     -   Scikit-learn 모델의 경우, 피드백을 반영하여 **선택된 모델을 즉시 재학습**하고 덮어쓸 수 있습니다.
--   **📊 고급 시각화**:
+![image](https://github.com/user-attachments/assets/515b919e-2ad1-4f99-b7eb-acfd97f68843)<br>
+:point_up:Scikit-learn은 즉시 피드백 추가<br>
+
+-   **📊 시각화**:
     -   분석 결과의 감성 분포를 파이 차트로 시각화합니다.
     -   '긍정', '부정', '중립' 각 레이블에 대한 워드 클라우드를 생성하여 핵심 키워드를 파악합니다.
+![image](https://github.com/user-attachments/assets/3d76aeae-438c-4b27-805f-fc1943f95261)<br>
+![image](https://github.com/user-attachments/assets/16773792-ee30-4d39-84c4-5ae506480c17)<br>
+:point_up:기본 불용어 확인과 게임별, 임시 불용어 등록 가능<br>
+![image](https://github.com/user-attachments/assets/e128024e-7dec-4b1f-9b4d-79323b88f4d0)<br>
+
+
 -   **⚙️ 3단계 불용어 관리**:
     -   **기본 불용어**: 모든 분석에 공통으로 적용되는 불용어를 UI에서 직접 관리 (`default_stop_words.json`).
     -   **게임별 불용어**: 특정 게임에만 적용되는 불용어를 별도로 관리 (`stopwords/[AppID].json`).
-    -   **임시 불용어**: 시각화 시 일회성으로 사용할 불용어를 직접 입력.
+![image](https://github.com/user-attachments/assets/61230dd1-5853-4da5-ac6e-bb460a46eedd)<br>
+:point_up:시각화에서 저장한 게임별 불용어 확인 가능<br>
+
 
 ## 📁 프로젝트 구조
 
@@ -98,7 +123,8 @@
 ### 3. 모델 학습 및 성능 검증
 - **1차 구현**  
     초기 모델은 딥러닝 기반의 LSTM
-    학습된 모델을 저장하고 저장된 모델을 불러와 추가 학습 혹은 성능 검증
+    학습된 모델을 저장하고 저장된 모델을 불러와 추가 학습 혹은 성능 검증하는 기능
+    약 2만개의 데이터로 초기 모델 학습
 - **시행착오**  
     학습 실행 시 앞서 기술한 비정상 레이블링 문제로 The least populated class in y has only 1 member... 오류가 발생하며 중단
     전처리 과정에서 비정상적 레이블을 제거하고 학습을 정상적으로 진행했음에도 불구하고, 여전히 '중립' 클래스의 f1-score가 현저히 낮게 측정되는 별개의 문제(데이터 불균형으로 추정)
@@ -106,6 +132,7 @@
     빠른 프로토타이핑을 위한 Scikit-learn(로지스틱 회귀) 모델과, 더 높은 성능을 기대할 수 있는 Deep Learning(LSTM) 모델 두 가지를 모두 학습하고 테스트할 수 있도록 UI와 로직을 분리
     class_weight='balanced'로 데이터가 적은 클래스에 자동으로 높은 가중치를 부여
     학습 속도가 빠른 Scikit-learn의 이점을 활용하여 '텍스트 직접 입력 테스트'에서 모델이 틀린 예측을 하면, 사용자가 올바른 레이블을 달아 피드백을 주는 기능을 추가
+    약 3만개의 추가 데이터(총 5만 이상)로 모델 학습 이후 추가 피드백 진행(테스트 시 예측률이 낮거나 틀린 리뷰)
 
 ### 4. 시각화
 - **1차 구현**
