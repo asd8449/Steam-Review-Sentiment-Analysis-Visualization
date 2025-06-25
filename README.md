@@ -11,7 +11,8 @@
 :point_up:기존에 수집한 데이터 확인 가능<br>
 <hr>
 -   **🤖 LLM 기반 레이블링**: 로컬 LLM(LM Studio 등)을 활용하여 수집된 리뷰에 '긍정', '부정', '중립' 감성 레이블을 자동으로 부여합니다.
-![image](https://github.com/user-attachments/assets/906ae66e-6049-42d3-a0fa-1749cc1380c1)<br>
+![458869779-906ae66e-6049-42d3-a0fa-1749cc1380c1](https://github.com/user-attachments/assets/46703d7e-6915-4939-8005-5ca1d133a08b)
+<br>
 :point_up:레이블링 전 데이터 개수, 미리보기, 컬럼 값 확인 가능<br>
 ![image](https://github.com/user-attachments/assets/191cb84d-2b6b-41e3-85a1-8ca30638f222)<br>
 :point_up:레이블링 설정 후 실행<br>
